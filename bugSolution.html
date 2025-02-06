@@ -1,0 +1,12 @@
+The issue was resolved by double-checking the `tailwind.config.js` file and ensuring that the `content` array properly includes all of the files containing HTML elements that I wish to style with Tailwind.  This was initially missing or incorrectly configured, leading to Tailwind not correctly processing those files. Also ensure that your CSS is imported correctly and has been compiled if necessary using a build tool.  In my case, a simple fix was to correctly specify the location of the HTML file containing the elements within the content array.
+
+```javascript
+// tailwind.config.js
+module.exports = {
+  content: [ "./src/**/*.{html,js}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
